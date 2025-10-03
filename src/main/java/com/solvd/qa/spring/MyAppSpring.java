@@ -33,6 +33,7 @@ import com.solvd.qa.util.workflow.BuilderUtil;
 import com.solvd.qa.workflow.step.builder.JenkinsWorkflow;
 import com.solvd.qa.workflow.step.builder.RabbitWorkflow;
 import com.solvd.qa.workflow.step.builder.STFWorkflow;
+import com.solvd.qa.workflow.step.builder.ZebrunnerWorkflow;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -67,6 +68,7 @@ public class MyAppSpring {
 		app.step(new JenkinsWorkflow().buildStep());
 		app.step(new RabbitWorkflow().buildStep());
 		app.step(new STFWorkflow().buildStep());
+		app.step(new ZebrunnerWorkflow().buildStep());
 
 		/**
 		 * handling of custom parameters setting

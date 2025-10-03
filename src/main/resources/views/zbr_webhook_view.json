@@ -1,0 +1,107 @@
+{
+		"type": "workflow_step",
+		"callback_id": "zbr_webhook",
+		"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": "Configure Zebrunner launch over webhook",
+				"emoji": false
+			}
+		},
+		{
+			"type": "divider"
+		},
+		{
+			"type": "input",
+			"block_id": "webhook",
+			"optional": false,
+			"label": {
+				"type": "plain_text",
+				"text": "Webhook url (from Zebrunner launchers page)"
+			},
+			"element": {
+				"type": "url_text_input",
+				"action_id": "webhook",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Webhook url"
+				}
+				<#if webhook_init_value?exists>,"initial_value": "${webhook_init_value}"</#if>
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "secret",
+			"optional": true,
+			"label": {
+				"type": "plain_text",
+				"text": "Secret value"
+			},
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "secret",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Enter secret value"
+				}
+				<#if secret_init_value?exists>,"initial_value": "${secret_init_value}"</#if>
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "env_vars",
+			"optional": true,
+			"label": {
+				"type": "plain_text",
+				"text": "Environment variables (to override run parameters), e.g. 'SUITE=minimal-acceptance;retry_count=3'"
+			},
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "env_vars",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Enter environment variables"
+				}
+				<#if env_vars_init_value?exists>,"initial_value": "${env_vars_init_value}"</#if>
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "slack_webhook",
+			"optional": true,
+			"label": {
+				"type": "plain_text",
+				"text": "Slack webhook for output printing"
+			},
+			"element": {
+				"type": "url_text_input",
+				"action_id": "slack_webhook",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Enter slack webhook"
+				}
+				<#if slack_webhook_init_value?exists>,"initial_value": "${slack_webhook_init_value}"</#if>
+			}
+		},
+		{
+			"type": "input",
+			"block_id": "requester",
+			"optional": true,
+			"label": {
+				"type": "plain_text",
+				"text": "User who requested the run"
+			},
+			"element": {
+				"type": "plain_text_input",
+				"action_id": "requester",
+				"placeholder": {
+					"type": "plain_text",
+					"text": "Choose user who triggered run"
+				}
+				<#if requester_init_value?exists>,"initial_value": "${requester_init_value}"</#if>
+			}
+		}
+		]
+}
